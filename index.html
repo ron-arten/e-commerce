@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pop Commerce Pendo</title>
+    <title>Pendo Demo</title>
 
     <!--
     - favicon
@@ -129,7 +129,7 @@
     - NOTIFICATION TOAST
   -->
 
-    <div class="notification-toast" data-toast>
+    <!-- <div class="notification-toast" data-toast>
       <button class="toast-close-btn" data-toast-close>
         <ion-icon name="close-outline"></ion-icon>
       </button>
@@ -150,7 +150,7 @@
 
         <p class="toast-meta"><time datetime="PT2M">2 Minutes</time> ago</p>
       </div>
-    </div>
+    </div> -->
 
     <!--
     - HEADER
@@ -196,7 +196,16 @@
               Purchase At Your Own Peril
             </p>
           </div>
+          <button class="banner-btn" onclick="changeVisitorId()">
+            Change Visitor Id
+          </button>
           
+          <button class="banner-btn" onclick="changeAccountId()">
+            Change Account ID
+          </button>
+          <button class="banner-btn" onclick="updateVisitorMeta()">
+            Update Visitor Metadata
+          </button>
 
           <div class="header-top-actions">
             <select name="currency">
