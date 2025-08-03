@@ -88,47 +88,101 @@
     - MODAL
   -->
 
-    <!-- <div class="modal" data-modal>
-      <div class="modal-close-overlay" data-modal-overlay></div>
+  <div class="modal" data-modal="contact-modal">
+    <div class="modal-close-overlay" data-modal-overlay></div>
 
-      <div class="modal-content">
-        <button class="modal-close-btn" data-modal-close>
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
+    <div class="modal-content">
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
 
-        <div class="newsletter-img">
-          <img
-            src="./assets/images/newsletter.png"
-            alt="subscribe newsletter"
-            width="400"
-            height="400"
+      <div class="newsletter">
+        <form id="contact-form">
+          <div class="newsletter-header">
+            <h3 class="newsletter-title">Contact Information</h3>
+          </div>
+
+          <input
+            type="text"
+            name="fullName"
+            class="email-field"
+            placeholder="Enter your full name"
+            required
           />
-        </div>
 
-        <div class="newsletter">
-          <form action="#">
-            <div class="newsletter-header">
-              <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+          <select name="country" class="email-field" required>
+            <option value="" disabled selected>Select your country</option>
+            <option value="Albion">Albion</option>
+            <option value="Lemuria">Lemuria</option>
+            <option value="Adria">Adria</option>
+            <option value="Lanka">Lanka</option>
+          </select>
 
-              <p class="newsletter-desc">
-                Subscribe to <b>Pendo</b> to get latest products and discount
-                update.
-              </p>
-            </div>
-
+          <div class="phone-input-container">
+            <span class="phone-prefix">+</span>
             <input
-              type="email"
-              name="email"
-              class="email-field"
-              placeholder="Email Address"
+              type="tel"
+              name="phone"
+              class="email-field phone-field"
+              placeholder="Enter your phone number"
               required
             />
+          </div>
 
-            <button type="submit" class="btn-newsletter">Subscribe</button>
-          </form>
-        </div>
+          <button type="button" class="btn-newsletter" onclick="showNextModal()">Next</button>
+        </form>
       </div>
-    </div> -->
+    </div>
+  </div>
+
+  <div class="modal" data-modal="client-modal">
+    <div class="modal-close-overlay" data-modal-overlay></div>
+
+    <div class="modal-content">
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter">
+        <form id="client-form">
+          <div class="newsletter-header">
+            <h3 class="newsletter-title">Client Details</h3>
+          </div>
+
+          <select name="incorporationCountry" class="email-field" required>
+            <option value="" disabled selected>Country of Incorporation</option>
+            <option value="Albion">Albion</option>
+            <option value="Lemuria">Lemuria</option>
+            <option value="Adria">Adria</option>
+            <option value="Lanka">Lanka</option>
+          </select>
+
+          <input
+            type="number"
+            name="registrationNumber"
+            class="email-field"
+            placeholder="Company registration number"
+            maxlength="8"
+            required
+          />
+
+          <input
+            type="text"
+            name="companyName"
+            class="email-field"
+            placeholder="Company name"
+            maxlength="16"
+            required
+          />
+
+          <div class="modal-btn-group">
+            <button type="button" class="btn-newsletter" onclick="showPreviousModal()">Back</button>
+            <button type="button" class="btn-newsletter" onclick="closeAllModals()">Done</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
     <!--
     - NOTIFICATION TOAST
@@ -899,7 +953,6 @@
               <div class="category-content-box">
                 <div class="category-content-flex">
                   <h3 class="category-item-title">Glasses & lens</h3>
-
                   <p class="category-item-amount">(68)</p>
                 </div>
 
@@ -1067,6 +1120,7 @@
                     <li class="sidebar-submenu-category">
                       <a href="#" class="sidebar-submenu-title">
                         <p class="product-name">shorts & jeans</p>
+                        <span>SOME STRING</span>
                         <data value="60" class="stock" title="Available Stock"
                           >60</data
                         >

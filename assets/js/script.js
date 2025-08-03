@@ -1,16 +1,49 @@
 'use strict';
 
 // modal variables
-const modal = document.querySelector('[data-modal]');
-const modalCloseBtn = document.querySelector('[data-modal-close]');
-const modalCloseOverlay = document.querySelector('[data-modal-overlay]');
+const contactModal = document.querySelector('[data-modal="contact-modal"]');
+const clientModal = document.querySelector('[data-modal="client-modal"]');
+const modalCloseBtns = document.querySelectorAll('[data-modal-close]');
+const modalCloseOverlays = document.querySelectorAll('[data-modal-overlay]');
+const shopNowBtns = document.querySelectorAll('.banner-btn');
 
-// modal function
-const modalCloseFunc = function () { modal.classList.add('closed') }
+// modal functions
+const showContactModal = function() {
+  contactModal.classList.add('active');
+}
 
-// modal eventListener
-modalCloseOverlay.addEventListener('click', modalCloseFunc);
-modalCloseBtn.addEventListener('click', modalCloseFunc);
+const showClientModal = function() {
+  contactModal.classList.remove('active');
+  clientModal.classList.add('active');
+}
+
+const showPreviousModal = function() {
+  clientModal.classList.remove('active');
+  contactModal.classList.add('active');
+}
+
+const closeAllModals = function() {
+  contactModal.classList.remove('active');
+  clientModal.classList.remove('active');
+}
+
+// modal event listeners
+shopNowBtns.forEach(btn => {
+  btn.addEventListener('click', showContactModal);
+});
+
+modalCloseBtns.forEach(btn => {
+  btn.addEventListener('click', closeAllModals);
+});
+
+modalCloseOverlays.forEach(overlay => {
+  overlay.addEventListener('click', closeAllModals);
+});
+
+// Expose functions to window for onclick handlers
+window.showNextModal = showClientModal;
+window.showPreviousModal = showPreviousModal;
+window.closeAllModals = closeAllModals;
 
 
 
