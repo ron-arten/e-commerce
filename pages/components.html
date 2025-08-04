@@ -17,6 +17,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <script type="text/javascript" src="../assets/js/pendo-functions.js"></script>
+    <script type="text/javascript">
+        var visitorId = pendo.getVisitorId();
+        var accountId = pendo.getAccountId();
+    </script>
+    <script>
+        (function (apiKey) {
+          (function (p, e, n, d, o) {
+            var v, w, x, y, z;
+            o = p[d] = p[d] || {};
+            o._q = o._q || [];
+            v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+            for (w = 0, x = v.length; w < x; ++w)
+              (function (m) {
+                o[m] =
+                  o[m] ||
+                  function () {
+                    o._q[m === v[0] ? 'unshift' : 'push'](
+                      [m].concat([].slice.call(arguments, 0))
+                    );
+                  };
+              })(v[w]);
+            y = e.createElement(n);
+            y.async = !0;
+            y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+            z = e.getElementsByTagName(n)[0];
+            z.parentNode.insertBefore(y, z);
+          })(window, document, 'script', 'pendo');
+  
+          // This function creates visitors and accounts in Pendo
+          // You will need to replace <visitor-id-goes-here> and <account-id-goes-here> with values you use in your app
+          // Please use Strings, Numbers, or Bools for value types.
+          pendo.initialize({
+            visitor: {
+              id: visitorId,
+  
+              // email:        // Recommended if using Pendo Feedback, or NPS Email
+              // full_name:    // Recommended if using Pendo Feedback
+            },
+  
+            account: {
+              id: accountId,
+  
+              // is_paying:    // Recommended if using Pendo Feedback
+              // monthly_value:// Recommended if using Pendo Feedback
+            },
+          });
+        })('e8b938d2-a39e-450f-789b-2f7fd8746586');
+      </script> 
 </head>
 <body>
     <div class="overlay" data-overlay></div>
