@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Always run from the project root (directory of this script)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# Allow overriding port via environment variable
+PORT="${PORT:-5500}"
+
+exec npx --yes live-server --port="${PORT}" --watch=. "$@"
+
+

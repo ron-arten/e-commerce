@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendo Demo - Forms</title>
+    
+    <link rel="shortcut icon" href="../assets/images/logo/favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="../assets/css/style-prefix.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="../assets/js/pendo-functions.js"></script>
+    <script type="text/javascript">
+        var visitorId = pendo.getVisitorId();
+        var accountId = pendo.getAccountId();
+    </script>
+    <script>
+        (function (apiKey) {
+          (function (p, e, n, d, o) {
+            var v, w, x, y, z;
+            o = p[d] = p[d] || {};
+            o._q = o._q || [];
+            v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+            for (w = 0, x = v.length; w < x; ++w)
+              (function (m) {
+                o[m] =
+                  o[m] ||
+                  function () {
+                    o._q[m === v[0] ? 'unshift' : 'push'](
+                      [m].concat([].slice.call(arguments, 0))
+                    );
+                  };
+              })(v[w]);
+            y = e.createElement(n);
+            y.async = !0;
+            y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+            z = e.getElementsByTagName(n)[0];
+            z.parentNode.insertBefore(y, z);
+          })(window, document, 'script', 'pendo');
+
+          pendo.initialize({
+            visitor: {
+              id: visitorId,
+            },
+            account: {
+              id: accountId,
+            },
+          });
+        })('e8b938d2-a39e-450f-789b-2f7fd8746586');
+      </script>
+    <style>
+        /* Scoped styles for Two-Step Forms (tsf-) */
+        .tsf-forms-section {
+            padding: 40px 0;
+        }
+        .tsf-forms-section .tsf-section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .tsf-forms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .tsf-forms-grid { grid-template-columns: 1fr; }
+        }
+        .tsf-form-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            padding: 20px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .tsf-form-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .tsf-form-card .tsf-subtitle {
+            margin: 0 0 16px 0;
+            font-size: 13px;
+            color: #6b7280;
+        }
+        .tsf-form-step[hidden] { display: none; }
+        .tsf-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .tsf-field label { font-size: 13px; color: #374151; }
+        .tsf-field input,
+        .tsf-field select,
+        .tsf-field textarea {
+            border: 1px solid #e5e7eb;
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 14px;
+            outline: none;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+        .tsf-field textarea { min-height: 84px; resize: vertical; }
+        .tsf-field input:focus,
+        .tsf-field select:focus,
+        .tsf-field textarea:focus {
+            border-color: #a78bfa;
+            box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.25);
+            background: #ffffff;
+        }
+        .tsf-error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+            background: #fff7f7 !important;
+        }
+        .tsf-error-text { font-size: 12px; color: #ef4444; }
+        .tsf-btn {
+            appearance: none;
+            border: none;
+            border-radius: 9999px;
+            padding: 10px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.06s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+        }
+        .tsf-btn:hover { transform: translateY(-1px); }
+        .tsf-btn:active { transform: translateY(0); }
+        .tsf-btn.tsfp-secondary {
+            background: #111827;
+            box-shadow: 0 6px 16px rgba(17, 24, 39, 0.25);
+        }
+        .tsf-actions { display: flex; gap: 10px; margin-top: 6px; }
+        .tsf-summary {
+            background: #f9fafb;
+            border: 1px dashed #e5e7eb;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0 14px;
+        }
+        .tsf-summary-item { font-size: 14px; color: #111827; }
+    </style>
+</head>
+<body>
+    <div class="overlay" data-overlay></div>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <ul class="header-social-container">
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="header-alert-news">
+                    <p>
+                        <img src="../assets/images/Pendo_Logo.png" width="70" height="15">
+                        <b> DEMO SITE</b>
+                        Purchase At Your Own Peril</p>
+                </div>
+
+                <div class="header-top-actions">
+                    <select name="currency">
+                        <option value="usd">USD &dollar;</option>
+                        <option value="eur">EUR &euro;</option>
+                    </select>
+
+                    <select name="language">
+                        <option value="en-US">English</option>
+                        <option value="es-ES">Espa&ntilde;ol</option>
+                        <option value="fr">Fran&ccedil;ais</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <a href="../index.html" class="header-logo">
+                    <img src="../assets/images/Pendo_Logo.png" alt="Pendo's logo" width="150" height="36">
+                </a>
+
+                <div class="header-search-container">
+                    <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
+                    <button class="search-btn">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="header-user-actions">
+                    <button class="action-btn">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </button>
+
+                    <button class="action-btn">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+
+                    <button class="action-btn">
+                        <ion-icon name="bag-handle-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="desktop-navigation-menu">
+            <div class="container">
+                <ul class="desktop-menu-category-list">
+                    <li class="menu-category">
+                        <a href="../index.html" class="menu-title">Home</a>
+                    </li>
+
+                    <li class="menu-category">
+                        <a href="#" class="menu-title">Categories</a>
+
+                        <div class="dropdown-panel">
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Electronics</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Desktop</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Laptop</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Camera</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Tablet</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Headphone</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Men's</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Formal</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Casual</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Sports</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Jacket</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Sunglasses</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/mens-banner.jpg" alt="men's fashion" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Women's</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Formal</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Casual</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Perfume</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Cosmetics</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Bags</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/womens-banner.jpg" alt="women's fashion" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+    <main>
+        <section class="container tsf-forms-section">
+            <h2 class="tsf-section-title">Two-Step Forms</h2>
+            <div class="tsf-forms-grid">
+                <form id="form-1" class="tsf-form-card" novalidate>
+                    <h3>Form 1</h3>
+                    <p class="tsf-subtitle">Tell us a bit about yourself.</p>
+                    <div class="tsf-form-step tsf-form-step-1">
+                        <div class="tsf-field">
+                            <label for="f1-name">Full name</label>
+                            <input id="f1-name" name="Full name" type="text" placeholder="Jane Doe" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f1-email">Email</label>
+                            <input id="f1-email" name="Email" type="text" placeholder="jane@example.com" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f1-role">Role</label>
+                            <select id="f1-role" name="Role" required>
+                                <option value="">Select a role</option>
+                                <option>Designer</option>
+                                <option>Engineer</option>
+                                <option>Product Manager</option>
+                                <option>Other</option>
+                            </select>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f1-notes">Notes</label>
+                            <textarea id="f1-notes" name="Notes" placeholder="Anything you'd like to add" required></textarea>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsf-submit-step">Submit</button>
+                        </div>
+                    </div>
+                    <div class="tsf-form-step tsf-form-step-2" hidden>
+                        <h4>Summary</h4>
+                        <div class="tsf-summary" data-summary></div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsfp-secondary tsf-btn-done">Done</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="form-2" class="tsf-form-card" novalidate>
+                    <h3>Form 2</h3>
+                    <p class="tsf-subtitle">Event registration details.</p>
+                    <div class="tsf-form-step tsf-form-step-1">
+                        <div class="tsf-field">
+                            <label for="f2-event">Event name</label>
+                            <input id="f2-event" name="Event name" type="text" placeholder="Spring Summit" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f2-date">Preferred date</label>
+                            <input id="f2-date" name="Preferred date" type="text" placeholder="2025-05-21" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f2-tickets">Tickets</label>
+                            <input id="f2-tickets" name="Tickets" type="text" placeholder="1" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f2-city">City</label>
+                            <input id="f2-city" name="City" type="text" placeholder="San Francisco" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsf-submit-step">Submit</button>
+                        </div>
+                    </div>
+                    <div class="tsf-form-step tsf-form-step-2" hidden>
+                        <h4>Summary</h4>
+                        <div class="tsf-summary" data-summary></div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsfp-secondary tsf-btn-done">Done</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="form-3" class="tsf-form-card" novalidate>
+                    <h3>Form 3</h3>
+                    <p class="tsf-subtitle">Shipping information.</p>
+                    <div class="tsf-form-step tsf-form-step-1">
+                        <div class="tsf-field">
+                            <label for="f3-name">Recipient</label>
+                            <input id="f3-name" name="Recipient" type="text" placeholder="John Smith" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f3-address">Address</label>
+                            <input id="f3-address" name="Address" type="text" placeholder="123 Market St" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f3-zip">ZIP / Postal code</label>
+                            <input id="f3-zip" name="ZIP / Postal code" type="text" placeholder="94103" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f3-country">Country</label>
+                            <select id="f3-country" name="Country" required>
+                                <option value="">Select country</option>
+                                <option>United States</option>
+                                <option>Canada</option>
+                                <option>United Kingdom</option>
+                                <option>Australia</option>
+                            </select>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsf-submit-step">Submit</button>
+                        </div>
+                    </div>
+                    <div class="tsf-form-step tsf-form-step-2" hidden>
+                        <h4>Summary</h4>
+                        <div class="tsf-summary" data-summary></div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsfp-secondary tsf-btn-done">Done</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="form-4" class="tsf-form-card" novalidate>
+                    <h3>Form 4</h3>
+                    <p class="tsf-subtitle">Feedback.</p>
+                    <div class="tsf-form-step tsf-form-step-1">
+                        <div class="tsf-field">
+                            <label for="f4-topic">Topic</label>
+                            <input id="f4-topic" name="Topic" type="text" placeholder="Website UX" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f4-rating">Rating (1-5)</label>
+                            <input id="f4-rating" name="Rating" type="text" placeholder="5" required>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f4-channel">Preferred contact</label>
+                            <select id="f4-channel" name="Preferred contact" required>
+                                <option value="">Select</option>
+                                <option>Email</option>
+                                <option>Phone</option>
+                                <option>Slack</option>
+                            </select>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-field">
+                            <label for="f4-comment">Comment</label>
+                            <textarea id="f4-comment" name="Comment" placeholder="Share your thoughts" required></textarea>
+                            <span class="tsf-error-text" hidden>This field is required.</span>
+                        </div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsf-submit-step">Submit</button>
+                        </div>
+                    </div>
+                    <div class="tsf-form-step tsf-form-step-2" hidden>
+                        <h4>Summary</h4>
+                        <div class="tsf-summary" data-summary></div>
+                        <div class="tsf-actions">
+                            <button type="button" class="tsf-btn tsfp-secondary tsf-btn-done">Done</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        (function() {
+            function validateStep(stepEl) {
+                var valid = true;
+                var fields = stepEl.querySelectorAll('input[required], select[required], textarea[required]');
+                fields.forEach(function(field) {
+                    var errorText = field.parentElement.querySelector('.tsf-error-text');
+                    var isEmpty = !field.value || String(field.value).trim() === '';
+                    if (isEmpty) {
+                        field.classList.add('tsf-error');
+                        if (errorText) errorText.hidden = false;
+                        valid = false;
+                    } else {
+                        field.classList.remove('tsf-error');
+                        if (errorText) errorText.hidden = true;
+                    }
+                });
+                return valid;
+            }
+
+            function escapeHtml(text) {
+                return text.replace(/&/g, '&amp;')
+                           .replace(/</g, '&lt;')
+                           .replace(/>/g, '&gt;')
+                           .replace(/\"/g, '&quot;')
+                           .replace(/'/g, '&#039;');
+            }
+
+            function buildSummary(stepEl, summaryEl) {
+                var parts = [];
+                var inputs = stepEl.querySelectorAll('input, select, textarea');
+                inputs.forEach(function(field) {
+                    var labelText = field.getAttribute('name') || (field.id ? (stepEl.querySelector('label[for="' + field.id + '"]') || {}).textContent : 'Field');
+                    var valueText = (field.value || '').toString().trim();
+                    if (valueText) {
+                        parts.push('<div class="tsf-summary-item"><strong>' + escapeHtml(labelText) + ':</strong> ' + escapeHtml(valueText) + '</div>');
+                    }
+                });
+                summaryEl.innerHTML = parts.join('') || '<div class="tsf-summary-item">No data.</div>';
+            }
+
+            document.addEventListener('click', function(e) {
+                if (e.target && e.target.classList.contains('tsf-submit-step')) {
+                    var form = e.target.closest('form');
+                    var step1 = form.querySelector('.tsf-form-step-1');
+                    var step2 = form.querySelector('.tsf-form-step-2');
+                    if (!validateStep(step1)) return;
+                    var summaryEl = step2.querySelector('[data-summary]');
+                    buildSummary(step1, summaryEl);
+                    step1.hidden = true;
+                    step2.hidden = false;
+                }
+                if (e.target && e.target.classList.contains('tsf-btn-done')) {
+                    var formToClose = e.target.closest('form');
+                    formToClose.style.display = 'none';
+                }
+            });
+        })();
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
