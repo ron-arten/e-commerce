@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Realm</title>
+    
+    <link rel="shortcut icon" href="../assets/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/style-prefix.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="../assets/js/pendo-functions.js"></script>
+    <script type="text/javascript">
+        var visitorId = pendo.getVisitorId();
+        var accountId = pendo.getAccountId();
+    </script>
+    <script>
+        (function (apiKey) {
+          (function (p, e, n, d, o) {
+            var v, w, x, y, z;
+            o = p[d] = p[d] || {};
+            o._q = o._q || [];
+            v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+            for (w = 0, x = v.length; w < x; ++w)
+              (function (m) {
+                o[m] =
+                  o[m] ||
+                  function () {
+                    o._q[m === v[0] ? 'unshift' : 'push'](
+                      [m].concat([].slice.call(arguments, 0))
+                    );
+                  };
+              })(v[w]);
+            y = e.createElement(n);
+            y.async = !0;
+            y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+            z = e.getElementsByTagName(n)[0];
+            z.parentNode.insertBefore(y, z);
+          })(window, document, 'script', 'pendo');
+
+          pendo.initialize({
+            visitor: {
+              id: visitorId,
+            },
+            account: {
+              id: accountId,
+            },
+          });
+        })('e8b938d2-a39e-450f-789b-2f7fd8746586');
+      </script>
+</head>
+<body>
+    <div class="overlay" data-overlay></div>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <ul class="header-social-container">
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="header-alert-news">
+                    <p>
+                        <img src="../assets/images/Pendo_Logo.png" width="70" height="15">
+                        <b> DEMO SITE</b>
+                        Purchase At Your Own Peril
+                    </p>
+                </div>
+
+                <div class="header-top-actions">
+                    <select name="currency">
+                        <option value="usd">USD &dollar;</option>
+                        <option value="eur">EUR &euro;</option>
+                    </select>
+
+                    <select name="language">
+                        <option value="en-US">English</option>
+                        <option value="es-ES">Espa&ntilde;ol</option>
+                        <option value="fr">Fran&ccedil;ais</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <a href="../index.html" class="header-logo">
+                    <img src="../assets/images/Pendo_Logo.png" alt="Pendo's logo" width="150" height="36">
+                </a>
+
+                <div class="header-search-container">
+                    <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
+                    <button class="search-btn">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="header-user-actions">
+                    <button class="action-btn">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </button>
+
+                    <button class="action-btn">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+
+                    <button class="action-btn">
+                        <ion-icon name="bag-handle-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="desktop-navigation-menu">
+            <div class="container">
+                <ul class="desktop-menu-category-list">
+                    <li class="menu-category">
+                        <a href="../index.html" class="menu-title">Home</a>
+                    </li>
+
+                    <li class="menu-category">
+                        <a href="#" class="menu-title">Categories</a>
+
+                        <div class="dropdown-panel">
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Electronics</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Desktop</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Laptop</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Camera</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Tablet</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Headphone</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Men's</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Formal</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Casual</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Sports</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Jacket</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Sunglasses</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/mens-banner.jpg" alt="men's fashion" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Women's</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Formal</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Casual</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Perfume</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Cosmetics</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Bags</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/womens-banner.jpg" alt="women's fashion" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+    <main>
+        <section class="container" style="padding: 48px 0;">
+            <h1 style="font-size: 28px; font-weight: 700; margin-bottom: 12px;">Shadow DOM Playground</h1>
+            <p style="color: #6b7280; margin-bottom: 32px;">Demonstrating Shadow DOM encapsulation with interactive components.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 24px;">
+                <!-- Shadow Button Component -->
+                <shadow-button label="Click Me!" color="primary"></shadow-button>
+                <shadow-button label="Secondary Action" color="secondary"></shadow-button>
+                <shadow-button label="Success" color="success"></shadow-button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 24px;">
+                <!-- Shadow Card with List -->
+                <shadow-card title="Task List" subtitle="Encapsulated list component"></shadow-card>
+                
+                <!-- Shadow Counter -->
+                <shadow-counter initial="0" label="Click Counter"></shadow-counter>
+                
+                <!-- Shadow Toggle -->
+                <shadow-toggle label="Dark Mode" description="Toggle theme"></shadow-toggle>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; margin-bottom: 24px;">
+                <!-- Shadow Form -->
+                <shadow-form title="Contact Form"></shadow-form>
+                
+                <!-- Shadow Flyout Menu -->
+                <shadow-flyout trigger-text="Open Menu"></shadow-flyout>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 24px;">
+                <!-- Shadow Tabs -->
+                <shadow-tabs></shadow-tabs>
+                
+                <!-- Shadow Accordion -->
+                <shadow-accordion title="Accordion Component"></shadow-accordion>
+                
+                <!-- Shadow Toast Notifications -->
+                <shadow-toast-container></shadow-toast-container>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shadow DOM Web Components -->
+    <script>
+        // 1. Shadow Button Component
+        class ShadowButton extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const label = this.getAttribute('label') || 'Button';
+                const color = this.getAttribute('color') || 'primary';
+                
+                const colors = {
+                    primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    secondary: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                    success: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+                };
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .shadow-btn {
+                            background: ${colors[color]};
+                            color: white;
+                            border: none;
+                            padding: 14px 28px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            border-radius: 12px;
+                            cursor: pointer;
+                            width: 100%;
+                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                            transition: transform 0.2s, box-shadow 0.2s;
+                        }
+                        .shadow-btn:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+                        }
+                        .shadow-btn:active {
+                            transform: translateY(0);
+                        }
+                        .click-count {
+                            margin-top: 8px;
+                            text-align: center;
+                            font-size: 14px;
+                            color: #6b7280;
+                        }
+                    </style>
+                    <button class="shadow-btn">${label}</button>
+                    <div class="click-count">Clicks: <span id="count">0</span></div>
+                `;
+
+                let count = 0;
+                const btn = this.shadowRoot.querySelector('.shadow-btn');
+                const countSpan = this.shadowRoot.querySelector('#count');
+                
+                btn.addEventListener('click', () => {
+                    count++;
+                    countSpan.textContent = count;
+                    this.dispatchEvent(new CustomEvent('button-clicked', { 
+                        detail: { count, label } 
+                    }));
+                });
+            }
+        }
+
+        // 2. Shadow Card with List
+        class ShadowCard extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const title = this.getAttribute('title') || 'Card Title';
+                const subtitle = this.getAttribute('subtitle') || '';
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .card {
+                            background: white;
+                            border-radius: 16px;
+                            padding: 24px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #e5e7eb;
+                        }
+                        .card-title {
+                            font-size: 20px;
+                            font-weight: 700;
+                            margin: 0 0 4px 0;
+                            color: #111827;
+                        }
+                        .card-subtitle {
+                            font-size: 14px;
+                            color: #6b7280;
+                            margin: 0 0 16px 0;
+                        }
+                        .task-list {
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                        }
+                        .task-item {
+                            display: flex;
+                            align-items: center;
+                            padding: 10px 0;
+                            border-bottom: 1px solid #f3f4f6;
+                        }
+                        .task-item:last-child {
+                            border-bottom: none;
+                        }
+                        .checkbox {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 12px;
+                            cursor: pointer;
+                        }
+                        .task-text {
+                            flex: 1;
+                            font-size: 14px;
+                            color: #374151;
+                        }
+                        .task-text.completed {
+                            text-decoration: line-through;
+                            color: #9ca3af;
+                        }
+                    </style>
+                    <div class="card">
+                        <h3 class="card-title">${title}</h3>
+                        <p class="card-subtitle">${subtitle}</p>
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <input type="checkbox" class="checkbox" data-task="0">
+                                <span class="task-text">Complete the project</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="checkbox" data-task="1">
+                                <span class="task-text">Review pull requests</span>
+                            </li>
+                            <li class="task-item">
+                                <input type="checkbox" class="checkbox" data-task="2">
+                                <span class="task-text">Update documentation</span>
+                            </li>
+                        </ul>
+                    </div>
+                `;
+
+                const checkboxes = this.shadowRoot.querySelectorAll('.checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', (e) => {
+                        const taskText = e.target.nextElementSibling;
+                        taskText.classList.toggle('completed', e.target.checked);
+                    });
+                });
+            }
+        }
+
+        // 3. Shadow Counter
+        class ShadowCounter extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const initial = parseInt(this.getAttribute('initial')) || 0;
+                const label = this.getAttribute('label') || 'Counter';
+                
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .counter-container {
+                            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+                            border-radius: 16px;
+                            padding: 24px;
+                            text-align: center;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                        }
+                        .counter-label {
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: white;
+                            margin-bottom: 12px;
+                        }
+                        .counter-value {
+                            font-size: 48px;
+                            font-weight: 700;
+                            color: white;
+                            margin: 16px 0;
+                        }
+                        .counter-buttons {
+                            display: flex;
+                            gap: 12px;
+                            justify-content: center;
+                        }
+                        .counter-btn {
+                            background: rgba(255, 255, 255, 0.3);
+                            color: white;
+                            border: 2px solid white;
+                            padding: 10px 20px;
+                            font-size: 18px;
+                            font-weight: 600;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            transition: background 0.2s;
+                        }
+                        .counter-btn:hover {
+                            background: rgba(255, 255, 255, 0.5);
+                        }
+                    </style>
+                    <div class="counter-container">
+                        <div class="counter-label">${label}</div>
+                        <div class="counter-value" id="value">${initial}</div>
+                        <div class="counter-buttons">
+                            <button class="counter-btn" id="decrement">−</button>
+                            <button class="counter-btn" id="reset">Reset</button>
+                            <button class="counter-btn" id="increment">+</button>
+                        </div>
+                    </div>
+                `;
+
+                let count = initial;
+                const valueEl = this.shadowRoot.querySelector('#value');
+                const decrementBtn = this.shadowRoot.querySelector('#decrement');
+                const incrementBtn = this.shadowRoot.querySelector('#increment');
+                const resetBtn = this.shadowRoot.querySelector('#reset');
+
+                incrementBtn.addEventListener('click', () => {
+                    count++;
+                    valueEl.textContent = count;
+                });
+
+                decrementBtn.addEventListener('click', () => {
+                    count--;
+                    valueEl.textContent = count;
+                });
+
+                resetBtn.addEventListener('click', () => {
+                    count = initial;
+                    valueEl.textContent = count;
+                });
+            }
+        }
+
+        // 4. Shadow Toggle
+        class ShadowToggle extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const label = this.getAttribute('label') || 'Toggle';
+                const description = this.getAttribute('description') || '';
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .toggle-container {
+                            background: white;
+                            border-radius: 16px;
+                            padding: 24px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #e5e7eb;
+                        }
+                        .toggle-header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                        .toggle-info {
+                            flex: 1;
+                        }
+                        .toggle-label {
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: #111827;
+                            margin: 0 0 4px 0;
+                        }
+                        .toggle-description {
+                            font-size: 14px;
+                            color: #6b7280;
+                            margin: 0;
+                        }
+                        .toggle-switch {
+                            position: relative;
+                            width: 60px;
+                            height: 32px;
+                            background: #d1d5db;
+                            border-radius: 16px;
+                            cursor: pointer;
+                            transition: background 0.3s;
+                        }
+                        .toggle-switch.active {
+                            background: #10b981;
+                        }
+                        .toggle-slider {
+                            position: absolute;
+                            top: 4px;
+                            left: 4px;
+                            width: 24px;
+                            height: 24px;
+                            background: white;
+                            border-radius: 50%;
+                            transition: transform 0.3s;
+                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                        }
+                        .toggle-switch.active .toggle-slider {
+                            transform: translateX(28px);
+                        }
+                        .toggle-status {
+                            margin-top: 16px;
+                            padding: 12px;
+                            background: #f9fafb;
+                            border-radius: 8px;
+                            text-align: center;
+                            font-size: 14px;
+                            font-weight: 500;
+                            color: #6b7280;
+                        }
+                    </style>
+                    <div class="toggle-container">
+                        <div class="toggle-header">
+                            <div class="toggle-info">
+                                <h3 class="toggle-label">${label}</h3>
+                                <p class="toggle-description">${description}</p>
+                            </div>
+                            <div class="toggle-switch" id="toggle">
+                                <div class="toggle-slider"></div>
+                            </div>
+                        </div>
+                        <div class="toggle-status" id="status">Status: OFF</div>
+                    </div>
+                `;
+
+                const toggle = this.shadowRoot.querySelector('#toggle');
+                const status = this.shadowRoot.querySelector('#status');
+                let isActive = false;
+
+                toggle.addEventListener('click', () => {
+                    isActive = !isActive;
+                    toggle.classList.toggle('active', isActive);
+                    status.textContent = `Status: ${isActive ? 'ON' : 'OFF'}`;
+                    status.style.color = isActive ? '#10b981' : '#6b7280';
+                });
+            }
+        }
+
+        // 5. Shadow Form
+        class ShadowForm extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const title = this.getAttribute('title') || 'Form';
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .form-container {
+                            background: white;
+                            border-radius: 16px;
+                            padding: 24px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #e5e7eb;
+                        }
+                        .form-title {
+                            font-size: 20px;
+                            font-weight: 700;
+                            margin: 0 0 20px 0;
+                            color: #111827;
+                        }
+                        .form-group {
+                            margin-bottom: 16px;
+                        }
+                        .form-label {
+                            display: block;
+                            font-size: 14px;
+                            font-weight: 500;
+                            color: #374151;
+                            margin-bottom: 6px;
+                        }
+                        .form-input {
+                            width: 100%;
+                            padding: 10px 12px;
+                            border: 1px solid #d1d5db;
+                            border-radius: 8px;
+                            font-size: 14px;
+                            box-sizing: border-box;
+                            transition: border-color 0.2s, box-shadow 0.2s;
+                        }
+                        .form-input:focus {
+                            outline: none;
+                            border-color: #8b5cf6;
+                            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+                        }
+                        .form-submit {
+                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                            color: white;
+                            border: none;
+                            padding: 12px 24px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            width: 100%;
+                            transition: transform 0.2s;
+                        }
+                        .form-submit:hover {
+                            transform: translateY(-2px);
+                        }
+                        .form-message {
+                            margin-top: 12px;
+                            padding: 12px;
+                            background: #f0fdf4;
+                            color: #15803d;
+                            border-radius: 8px;
+                            font-size: 14px;
+                            display: none;
+                        }
+                        .form-message.show {
+                            display: block;
+                        }
+                    </style>
+                    <div class="form-container">
+                        <h3 class="form-title">${title}</h3>
+                        <form id="shadow-form">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-input" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-input" rows="3" placeholder="Your message..." style="resize: vertical;"></textarea>
+                            </div>
+                            <button type="submit" class="form-submit">Submit</button>
+                        </form>
+                        <div class="form-message" id="message">Form submitted successfully!</div>
+                    </div>
+                `;
+
+                const form = this.shadowRoot.querySelector('#shadow-form');
+                const message = this.shadowRoot.querySelector('#message');
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    message.classList.add('show');
+                    setTimeout(() => {
+                        message.classList.remove('show');
+                        form.reset();
+                    }, 3000);
+                });
+            }
+        }
+
+        // 6. Shadow Flyout Menu
+        class ShadowFlyout extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const triggerText = this.getAttribute('trigger-text') || 'Menu';
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .flyout-container {
+                            position: relative;
+                            background: white;
+                            border-radius: 16px;
+                            padding: 24px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #e5e7eb;
+                        }
+                        .flyout-trigger {
+                            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                            color: white;
+                            border: none;
+                            padding: 12px 24px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            transition: transform 0.2s;
+                        }
+                        .flyout-trigger:hover {
+                            transform: translateY(-2px);
+                        }
+                        .flyout-menu {
+                            position: absolute;
+                            top: calc(100% + 8px);
+                            left: 24px;
+                            right: 24px;
+                            background: white;
+                            border-radius: 12px;
+                            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+                            opacity: 0;
+                            transform: translateY(-10px);
+                            pointer-events: none;
+                            transition: opacity 0.3s, transform 0.3s;
+                            z-index: 10;
+                            overflow: hidden;
+                        }
+                        .flyout-menu.open {
+                            opacity: 1;
+                            transform: translateY(0);
+                            pointer-events: all;
+                        }
+                        .menu-item {
+                            padding: 14px 20px;
+                            border-bottom: 1px solid #f3f4f6;
+                            cursor: pointer;
+                            transition: background 0.2s;
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                        }
+                        .menu-item:last-child {
+                            border-bottom: none;
+                        }
+                        .menu-item:hover {
+                            background: #f9fafb;
+                        }
+                        .menu-icon {
+                            font-size: 18px;
+                        }
+                        .menu-text {
+                            font-size: 14px;
+                            color: #374151;
+                            font-weight: 500;
+                        }
+                        .arrow {
+                            transition: transform 0.3s;
+                        }
+                        .arrow.rotated {
+                            transform: rotate(180deg);
+                        }
+                    </style>
+                    <div class="flyout-container">
+                        <button class="flyout-trigger" id="trigger">
+                            <span>${triggerText}</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div class="flyout-menu" id="menu">
+                            <div class="menu-item" data-action="profile">
+                                <span class="menu-icon">👤</span>
+                                <span class="menu-text">Profile Settings</span>
+                            </div>
+                            <div class="menu-item" data-action="notifications">
+                                <span class="menu-icon">🔔</span>
+                                <span class="menu-text">Notifications</span>
+                            </div>
+                            <div class="menu-item" data-action="preferences">
+                                <span class="menu-icon">⚙️</span>
+                                <span class="menu-text">Preferences</span>
+                            </div>
+                            <div class="menu-item" data-action="logout">
+                                <span class="menu-icon">🚪</span>
+                                <span class="menu-text">Logout</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const trigger = this.shadowRoot.querySelector('#trigger');
+                const menu = this.shadowRoot.querySelector('#menu');
+                const arrow = this.shadowRoot.querySelector('.arrow');
+                const items = this.shadowRoot.querySelectorAll('.menu-item');
+
+                trigger.addEventListener('click', () => {
+                    menu.classList.toggle('open');
+                    arrow.classList.toggle('rotated');
+                });
+
+                items.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const action = item.getAttribute('data-action');
+                        console.log(`Menu action: ${action}`);
+                        menu.classList.remove('open');
+                        arrow.classList.remove('rotated');
+                    });
+                });
+
+                // Close on outside click
+                document.addEventListener('click', (e) => {
+                    if (!this.contains(e.target)) {
+                        menu.classList.remove('open');
+                        arrow.classList.remove('rotated');
+                    }
+                });
+            }
+        }
+
+        // 7. Shadow Tabs
+        class ShadowTabs extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .tabs-container {
+                            background: white;
+                            border-radius: 16px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #e5e7eb;
+                            overflow: hidden;
+                        }
+                        .tabs-header {
+                            display: flex;
+                            background: #f9fafb;
+                            border-bottom: 2px solid #e5e7eb;
+                        }
+                        .tab-button {
+                            flex: 1;
+                            padding: 16px 24px;
+                            background: transparent;
+                            border: none;
+                            font-size: 15px;
+                            font-weight: 600;
+                            color: #6b7280;
+                            cursor: pointer;
+                            transition: color 0.2s, background 0.2s;
+                            position: relative;
+                        }
+                        .tab-button:hover {
+                            background: #f3f4f6;
+                        }
+                        .tab-button.active {
+                            color: #8b5cf6;
+                        }
+                        .tab-button.active::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -2px;
+                            left: 0;
+                            right: 0;
+                            height: 2px;
+                            background: #8b5cf6;
+                        }
+                        .tab-content {
+                            padding: 24px;
+                            display: none;
+                        }
+                        .tab-content.active {
+                            display: block;
+                        }
+                        .content-title {
+                            font-size: 18px;
+                            font-weight: 700;
+                            margin: 0 0 12px 0;
+                            color: #111827;
+                        }
+                        .content-text {
+                            font-size: 14px;
+                            color: #6b7280;
+                            line-height: 1.6;
+                        }
+                    </style>
+                    <div class="tabs-container">
+                        <div class="tabs-header">
+                            <button class="tab-button active" data-tab="overview">Overview</button>
+                            <button class="tab-button" data-tab="features">Features</button>
+                            <button class="tab-button" data-tab="settings">Settings</button>
+                        </div>
+                        <div class="tab-content active" data-content="overview">
+                            <h4 class="content-title">Overview</h4>
+                            <p class="content-text">Shadow DOM provides encapsulation for the DOM and CSS. This component demonstrates how tabs can be completely isolated from the parent document's styles.</p>
+                        </div>
+                        <div class="tab-content" data-content="features">
+                            <h4 class="content-title">Features</h4>
+                            <p class="content-text">• Style encapsulation<br>• DOM isolation<br>• Reusable components<br>• No style conflicts</p>
+                        </div>
+                        <div class="tab-content" data-content="settings">
+                            <h4 class="content-title">Settings</h4>
+                            <p class="content-text">Configure your preferences here. All settings are stored within the shadow DOM scope.</p>
+                        </div>
+                    </div>
+                `;
+
+                const buttons = this.shadowRoot.querySelectorAll('.tab-button');
+                const contents = this.shadowRoot.querySelectorAll('.tab-content');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const tab = button.getAttribute('data-tab');
+                        
+                        buttons.forEach(b => b.classList.remove('active'));
+                        contents.forEach(c => c.classList.remove('active'));
+                        
+                        button.classList.add('active');
+                        this.shadowRoot.querySelector(`[data-content="${tab}"]`).classList.add('active');
+                    });
+                });
+            }
+        }
+
+        // 8. Shadow Accordion
+        class ShadowAccordion extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                const title = this.getAttribute('title') || 'Accordion';
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .accordion-container {
+                            background: white;
+                            border-radius: 16px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #e5e7eb;
+                            overflow: hidden;
+                        }
+                        .accordion-header {
+                            padding: 20px 24px;
+                            background: #f9fafb;
+                            border-bottom: 1px solid #e5e7eb;
+                        }
+                        .accordion-title {
+                            font-size: 20px;
+                            font-weight: 700;
+                            margin: 0;
+                            color: #111827;
+                        }
+                        .accordion-item {
+                            border-bottom: 1px solid #f3f4f6;
+                        }
+                        .accordion-item:last-child {
+                            border-bottom: none;
+                        }
+                        .accordion-trigger {
+                            width: 100%;
+                            padding: 16px 24px;
+                            background: white;
+                            border: none;
+                            text-align: left;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #374151;
+                            cursor: pointer;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            transition: background 0.2s;
+                        }
+                        .accordion-trigger:hover {
+                            background: #fafafa;
+                        }
+                        .accordion-icon {
+                            transition: transform 0.3s;
+                            font-size: 14px;
+                        }
+                        .accordion-trigger.active .accordion-icon {
+                            transform: rotate(180deg);
+                        }
+                        .accordion-content {
+                            max-height: 0;
+                            overflow: hidden;
+                            transition: max-height 0.3s ease;
+                        }
+                        .accordion-content.open {
+                            max-height: 200px;
+                        }
+                        .accordion-body {
+                            padding: 16px 24px;
+                            font-size: 14px;
+                            color: #6b7280;
+                            line-height: 1.6;
+                        }
+                    </style>
+                    <div class="accordion-container">
+                        <div class="accordion-header">
+                            <h3 class="accordion-title">${title}</h3>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger">
+                                <span>What is Shadow DOM?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    Shadow DOM is a web standard that offers component-based encapsulation for the DOM tree and styles.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger">
+                                <span>Why use Shadow DOM?</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    It prevents style conflicts, enables reusable components, and provides true encapsulation.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger">
+                                <span>Browser Support</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    Shadow DOM is supported in all modern browsers including Chrome, Firefox, Safari, and Edge.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const triggers = this.shadowRoot.querySelectorAll('.accordion-trigger');
+                
+                triggers.forEach(trigger => {
+                    trigger.addEventListener('click', () => {
+                        const content = trigger.nextElementSibling;
+                        const isOpen = content.classList.contains('open');
+                        
+                        // Close all
+                        this.shadowRoot.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+                        this.shadowRoot.querySelectorAll('.accordion-trigger').forEach(t => t.classList.remove('active'));
+                        
+                        // Open clicked if it was closed
+                        if (!isOpen) {
+                            content.classList.add('open');
+                            trigger.classList.add('active');
+                        }
+                    });
+                });
+            }
+        }
+
+        // 9. Shadow Toast Container
+        class ShadowToastContainer extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                        }
+                        .toast-demo {
+                            background: white;
+                            border-radius: 16px;
+                            padding: 24px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #e5e7eb;
+                        }
+                        .toast-title {
+                            font-size: 20px;
+                            font-weight: 700;
+                            margin: 0 0 16px 0;
+                            color: #111827;
+                        }
+                        .toast-buttons {
+                            display: flex;
+                            gap: 12px;
+                            flex-wrap: wrap;
+                        }
+                        .toast-btn {
+                            padding: 10px 20px;
+                            border: none;
+                            border-radius: 8px;
+                            font-size: 14px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: transform 0.2s;
+                        }
+                        .toast-btn:hover {
+                            transform: translateY(-2px);
+                        }
+                        .toast-btn.success {
+                            background: #10b981;
+                            color: white;
+                        }
+                        .toast-btn.error {
+                            background: #ef4444;
+                            color: white;
+                        }
+                        .toast-btn.info {
+                            background: #3b82f6;
+                            color: white;
+                        }
+                        .toast-container {
+                            position: fixed;
+                            top: 24px;
+                            right: 24px;
+                            z-index: 1000;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 12px;
+                        }
+                        .toast {
+                            padding: 16px 20px;
+                            border-radius: 12px;
+                            color: white;
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            min-width: 300px;
+                            animation: slideIn 0.3s ease;
+                        }
+                        @keyframes slideIn {
+                            from {
+                                transform: translateX(100%);
+                                opacity: 0;
+                            }
+                            to {
+                                transform: translateX(0);
+                                opacity: 1;
+                            }
+                        }
+                        .toast.success {
+                            background: #10b981;
+                        }
+                        .toast.error {
+                            background: #ef4444;
+                        }
+                        .toast.info {
+                            background: #3b82f6;
+                        }
+                        .toast-icon {
+                            font-size: 20px;
+                        }
+                        .toast-message {
+                            flex: 1;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                    </style>
+                    <div class="toast-demo">
+                        <h3 class="toast-title">Toast Notifications</h3>
+                        <div class="toast-buttons">
+                            <button class="toast-btn success" data-type="success">Show Success</button>
+                            <button class="toast-btn error" data-type="error">Show Error</button>
+                            <button class="toast-btn info" data-type="info">Show Info</button>
+                        </div>
+                    </div>
+                    <div class="toast-container" id="toastContainer"></div>
+                `;
+
+                const buttons = this.shadowRoot.querySelectorAll('.toast-btn');
+                const container = this.shadowRoot.querySelector('#toastContainer');
+
+                const messages = {
+                    success: { icon: '✓', text: 'Operation completed successfully!' },
+                    error: { icon: '✕', text: 'An error occurred. Please try again.' },
+                    info: { icon: 'ℹ', text: 'Here is some useful information.' }
+                };
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const type = button.getAttribute('data-type');
+                        const { icon, text } = messages[type];
+                        
+                        const toast = document.createElement('div');
+                        toast.className = `toast ${type}`;
+                        toast.innerHTML = `
+                            <span class="toast-icon">${icon}</span>
+                            <span class="toast-message">${text}</span>
+                        `;
+                        
+                        container.appendChild(toast);
+                        
+                        setTimeout(() => {
+                            toast.style.animation = 'slideIn 0.3s ease reverse';
+                            setTimeout(() => toast.remove(), 300);
+                        }, 3000);
+                    });
+                });
+            }
+        }
+
+        // Register all custom elements
+        customElements.define('shadow-button', ShadowButton);
+        customElements.define('shadow-card', ShadowCard);
+        customElements.define('shadow-counter', ShadowCounter);
+        customElements.define('shadow-toggle', ShadowToggle);
+        customElements.define('shadow-form', ShadowForm);
+        customElements.define('shadow-flyout', ShadowFlyout);
+        customElements.define('shadow-tabs', ShadowTabs);
+        customElements.define('shadow-accordion', ShadowAccordion);
+        customElements.define('shadow-toast-container', ShadowToastContainer);
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+
