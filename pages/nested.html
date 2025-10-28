@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/images/logo/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS files -->
+    <link rel="stylesheet" href="../assets/css/style-prefix.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <script type="text/javascript" src="../assets/js/pendo-functions.js"></script>
+    <script type="text/javascript">
+        var visitorId = pendo.getVisitorId();
+        var accountId = pendo.getAccountId();
+    </script>
+    <script>
+        (function (apiKey) {
+          (function (p, e, n, d, o) {
+            var v, w, x, y, z;
+            o = p[d] = p[d] || {};
+            o._q = o._q || [];
+            v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+            for (w = 0, x = v.length; w < x; ++w)
+              (function (m) {
+                o[m] =
+                  o[m] ||
+                  function () {
+                    o._q[m === v[0] ? 'unshift' : 'push'](
+                      [m].concat([].slice.call(arguments, 0))
+                    );
+                  };
+              })(v[w]);
+            y = e.createElement(n);
+            y.async = !0;
+            y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+            z = e.getElementsByTagName(n)[0];
+            z.parentNode.insertBefore(y, z);
+          })(window, document, 'script', 'pendo');
+  
+          // This function creates visitors and accounts in Pendo
+          // You will need to replace <visitor-id-goes-here> and <account-id-goes-here> with values you use in your app
+          // Please use Strings, Numbers, or Bools for value types.
+          pendo.initialize({
+            visitor: {
+              id: visitorId,
+  
+              // email:        // Recommended if using Pendo Feedback, or NPS Email
+              // full_name:    // Recommended if using Pendo Feedback
+            },
+  
+            account: {
+              id: accountId,
+  
+              // is_paying:    // Recommended if using Pendo Feedback
+              // monthly_value:// Recommended if using Pendo Feedback
+            },
+          });
+        })('e8b938d2-a39e-450f-789b-2f7fd8746586');
+      </script> 
+</head>
+<body>
+    <div class="overlay" data-overlay></div>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <ul class="header-social-container">
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="header-alert-news">
+                    <p>
+                        <img src="../assets/images/Pendo_Logo.png" width="70" height="15">
+                        <b> DEMO SITE</b>
+                        Purchase At Your Own Peril
+                    </p>
+                </div>
+
+                <div class="header-top-actions">
+                    <select name="currency">
+                        <option value="usd">USD &dollar;</option>
+                        <option value="eur">EUR &euro;</option>
+                    </select>
+
+                    <select name="language">
+                        <option value="en-US">English</option>
+                        <option value="es-ES">Espa&ntilde;ol</option>
+                        <option value="fr">Fran&ccedil;ais</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <div class="container">
+                <a href="../index.html" class="header-logo">
+                    <img src="../assets/images/Pendo_Logo.png" alt="Pendo's logo" width="150" height="36">
+                </a>
+
+                <div class="header-search-container">
+                    <input type="search" name="search" class="search-field" placeholder="Enter your product name...">
+                    <button class="search-btn">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="header-user-actions">
+                    <button class="action-btn">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </button>
+
+                    <button class="action-btn">
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+
+                    <button class="action-btn">
+                        <ion-icon name="bag-handle-outline"></ion-icon>
+                        <span class="count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="desktop-navigation-menu">
+            <div class="container">
+                <ul class="desktop-menu-category-list">
+                    <li class="menu-category">
+                        <a href="../index.html" class="menu-title">Home</a>
+                    </li>
+
+                    <li class="menu-category">
+                        <a href="#" class="menu-title">Categories</a>
+
+                        <div class="dropdown-panel">
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Electronics</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Desktop</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Laptop</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Camera</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Tablet</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Headphone</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/electronics-banner-1.jpg" alt="headphone collection" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Men's</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Formal</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Casual</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Sports</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Jacket</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Sunglasses</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/mens-banner.jpg" alt="men's fashion" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="dropdown-panel-list">
+                                <li class="menu-title">
+                                    <a href="#">Women's</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Formal</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Casual</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Perfume</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Cosmetics</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">Bags</a>
+                                </li>
+
+                                <li class="panel-list-item">
+                                    <a href="#">
+                                        <img src="../assets/images/womens-banner.jpg" alt="women's fashion" width="250" height="119">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+    <main>
+        <div class="container">
+            <h1>Nested Page</h1>
+            <p>Welcome to the Nested page. This page demonstrates nested frame functionality.</p>
+        </div>
+    </main>
+
+    <!--
+    - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
