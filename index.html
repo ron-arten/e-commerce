@@ -59,17 +59,19 @@
       // Please use Strings, Numbers, or Bools for value types.
       pendo.initialize({
         visitor: {
-          id: 'visitorTest',
-
-          // email:        // Recommended if using Pendo Feedback, or NPS Email
-          // full_name:    // Recommended if using Pendo Feedback
+          id: "defaultVisitorId",
+          email: "xxxxx+entsa@gmail.com",
+          role: "Customer",
+          locale: "us",
+          country: "United States",
+          city: "Cedar Park",
+          companyname: "Registrar Nutrition",
+          cd_number: "",
+          user_recipes_count: 1,
         },
-
         account: {
-          id: 'accountTest',
-
-          // is_paying:    // Recommended if using Pendo Feedback
-          // monthly_value:// Recommended if using Pendo Feedback
+          id: "defaultAccountId",
+          is_paying: false,
         },
       });
     })('e8b938d2-a39e-450f-789b-2f7fd8746586');
@@ -79,6 +81,59 @@
 
 <body>
   <div class="overlay" data-overlay></div>
+
+  <!--
+    - ASK AGORA SIDEBAR + PANEL
+  -->
+
+  <aside class="agora-sidebar" aria-label="Ask Agora sidebar">
+    <img class="agora-sidebar__logo" src="./assets/images/logo/sidebar-logo.webp" alt="Ask Agora logo" />
+
+    <button
+      class="agora-sidebar__iconBtn"
+      type="button"
+      aria-label="Open Ask Agora"
+      aria-controls="agora-panel"
+      aria-expanded="false"
+      data-agora-toggle
+    >
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    </button>
+  </aside>
+
+  <section class="agora-panel" id="agora-panel" aria-hidden="true" data-agora-panel>
+    <div class="agora-panel__inner">
+      <div class="agora-panel__nav">
+        <img class="agora-panel__brand" src="./assets/images/Pendo_Logo.png" alt="Pendo logo" />
+
+        <div class="agora-panel__datasource">
+          <span class="agora-pill">Data source</span>
+          <p class="agora-panel__datasourceText"><strong>PMX:</strong> Simplifies querying your data using AI.</p>
+        </div>
+
+        <div class="agora-panel__sectionList" aria-label="Ask Agora menu">
+          <button class="agora-panel__sectionLink" type="button">Favorite Questions</button>
+          <button class="agora-panel__sectionLink" type="button">Recent Questions</button>
+        </div>
+      </div>
+
+      <div class="agora-panel__main">
+        <div class="agora-panel__hero">
+          <div class="agora-panel__heroArt" aria-hidden="true"></div>
+          <div class="agora-panel__heroTitle">Don't know what to ask? Start here.</div>
+
+          <div class="agora-panel__suggestions" aria-label="Suggested questions">
+            <button class="agora-suggestion" type="button">Show me a list of my entities and include the address.</button>
+            <button class="agora-suggestion" type="button">What are my active vendors?</button>
+          </div>
+        </div>
+
+        <div class="agora-panel__composer">
+          <input class="agora-panel__input" type="text" placeholder="Ask Agora anything..." aria-label="Ask Agora anything" />
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!--
     - MODAL
@@ -3206,6 +3261,7 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/sidebar.js" defer></script>
 
   <!--
     - ionicon link
