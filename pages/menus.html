@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menus</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/images/logo/favicon.ico" type="image/x-icon">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="../assets/css/menus.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="../assets/js/pendo-functions.js"></script>
+    <script type="text/javascript">
+        var visitorId = pendo.getVisitorId();
+        var accountId = pendo.getAccountId();
+    </script>
+    <script>
+        (function (apiKey) {
+          (function (p, e, n, d, o) {
+            var v, w, x, y, z;
+            o = p[d] = p[d] || {};
+            o._q = o._q || [];
+            v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+            for (w = 0, x = v.length; w < x; ++w)
+              (function (m) {
+                o[m] =
+                  o[m] ||
+                  function () {
+                    o._q[m === v[0] ? 'unshift' : 'push'](
+                      [m].concat([].slice.call(arguments, 0))
+                    );
+                  };
+              })(v[w]);
+            y = e.createElement(n);
+            y.async = !0;
+            y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+            z = e.getElementsByTagName(n)[0];
+            z.parentNode.insertBefore(y, z);
+          })(window, document, 'script', 'pendo');
+
+          pendo.initialize({
+            visitor: { id: visitorId },
+            account: { id: accountId },
+          });
+        })('e8b938d2-a39e-450f-789b-2f7fd8746586');
+    </script>
+</head>
+<body>
+    <a href="../index.html" class="adm-back">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Back to site
+    </a>
+
+    <div class="adm-page">
+        <aside class="adm-sidebar" data-adm-sidebar aria-label="Admin navigation">
+            <button class="adm-toggle" data-adm-toggle aria-expanded="false" aria-label="Expand menu">
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
+
+            <ul class="adm-list" role="menu">
+                <li class="adm-item" role="none">
+                    <a href="#" class="adm-link" role="menuitem" data-label="Dashboard">
+                        <ion-icon name="grid-outline"></ion-icon>
+                        <span class="adm-label">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="adm-item adm-item--has-sub" role="none" data-adm-parent>
+                    <button type="button" class="adm-link adm-link--parent" role="menuitem"
+                            aria-haspopup="true" aria-expanded="false" data-label="Products">
+                        <ion-icon name="cube-outline"></ion-icon>
+                        <span class="adm-label">Products</span>
+                        <ion-icon name="chevron-forward-outline" class="adm-chev"></ion-icon>
+                    </button>
+                    <ul class="adm-sub" data-adm-sub role="menu">
+                        <li class="adm-flyout__head" aria-hidden="true">Products</li>
+                        <li role="none"><a href="#" role="menuitem">All Products</a></li>
+                        <li role="none"><a href="#" role="menuitem">Add New</a></li>
+                        <li role="none"><a href="#" role="menuitem">Categories</a></li>
+                    </ul>
+                </li>
+
+                <li class="adm-item adm-item--has-sub" role="none" data-adm-parent>
+                    <button type="button" class="adm-link adm-link--parent" role="menuitem"
+                            aria-haspopup="true" aria-expanded="false" data-label="Orders">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span class="adm-label">Orders</span>
+                        <ion-icon name="chevron-forward-outline" class="adm-chev"></ion-icon>
+                    </button>
+                    <ul class="adm-sub" data-adm-sub role="menu">
+                        <li class="adm-flyout__head" aria-hidden="true">Orders</li>
+                        <li role="none"><a href="#" role="menuitem">All Orders</a></li>
+                        <li role="none"><a href="#" role="menuitem">Pending</a></li>
+                        <li role="none"><a href="#" role="menuitem">Fulfilled</a></li>
+                    </ul>
+                </li>
+
+                <li class="adm-item" role="none">
+                    <a href="#" class="adm-link" role="menuitem" data-label="Customers">
+                        <ion-icon name="people-outline"></ion-icon>
+                        <span class="adm-label">Customers</span>
+                    </a>
+                </li>
+
+                <li class="adm-item" role="none">
+                    <a href="#" class="adm-link" role="menuitem" data-label="Analytics">
+                        <ion-icon name="bar-chart-outline"></ion-icon>
+                        <span class="adm-label">Analytics</span>
+                    </a>
+                </li>
+
+                <li class="adm-item adm-item--has-sub" role="none" data-adm-parent>
+                    <button type="button" class="adm-link adm-link--parent" role="menuitem"
+                            aria-haspopup="true" aria-expanded="false" data-label="Settings">
+                        <ion-icon name="settings-outline"></ion-icon>
+                        <span class="adm-label">Settings</span>
+                        <ion-icon name="chevron-forward-outline" class="adm-chev"></ion-icon>
+                    </button>
+                    <ul class="adm-sub" data-adm-sub role="menu">
+                        <li class="adm-flyout__head" aria-hidden="true">Settings</li>
+                        <li role="none"><a href="#" role="menuitem">General</a></li>
+                        <li role="none"><a href="#" role="menuitem">Users</a></li>
+                        <li role="none"><a href="#" role="menuitem">Integrations</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="adm-content">
+            <h1>Menus</h1>
+            <p>
+                A focused demo of a collapsible left-side navigation. The sidebar starts collapsed —
+                hover any icon to preview its submenu in a flyout panel. Use the toggle at the top to
+                expand the sidebar; in expanded mode, click any parent item to open an inline dropdown.
+            </p>
+            <p>
+                Tab key navigates the items, Escape collapses the sidebar (or closes any open flyout).
+            </p>
+            <div class="adm-mobile-notice">
+                This demo is designed for desktop interactions (hover and click). Try it on a larger viewport.
+            </div>
+        </main>
+    </div>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- Page script -->
+    <script src="../assets/js/menus.js"></script>
+</body>
+</html>
