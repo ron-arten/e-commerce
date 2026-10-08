@@ -578,8 +578,27 @@
 
     <script>
         (function() {
+            // Pendo: step-1 values that are safe to send with two_step_form_submitted, keyed by field name.
+            // Full name, Email, Notes, Recipient, Address, ZIP / Postal code and Comment are never sent.
+            var TRACKED_FIELDS = {
+                'Role': 'role',
+                'Event name': 'event_name',
+                'Preferred date': 'preferred_date',
+                'Tickets': 'tickets',
+                'City': 'city',
+                'Country': 'country',
+                'Topic': 'topic',
+                'Rating': 'rating',
+                'Preferred contact': 'preferred_contact'
+            };
+            var NUMERIC_FIELDS = { 'Tickets': true, 'Rating': true };
+
+            // Pendo: Submit clicks that failed validation, per form id
+            var failedAttempts = {};
+
             function validateStep(stepEl) {
                 var valid = true;
+                var missingFields = [];
                 var fields = stepEl.querySelectorAll('input[required], select[required], textarea[required]');
                 fields.forEach(function(field) {
                     var errorText = field.parentElement.querySelector('.tsf-error-text');
@@ -588,12 +607,13 @@
                         field.classList.add('tsf-error');
                         if (errorText) errorText.hidden = false;
                         valid = false;
+                        missingFields.push(field.getAttribute('name'));
                     } else {
                         field.classList.remove('tsf-error');
                         if (errorText) errorText.hidden = true;
                     }
                 });
-                return valid;
+                return { valid: valid, missingFields: missingFields, requiredFieldCount: fields.length };
             }
 
             function escapeHtml(text) {
@@ -617,16 +637,64 @@
                 summaryEl.innerHTML = parts.join('') || '<div class="tsf-summary-item">No data.</div>';
             }
 
+            function getText(root, selector) {
+                var el = root.querySelector(selector);
+                return el ? el.textContent.trim() : undefined;
+            }
+
+            // Pendo: Submit was clicked but required fields are empty ("This field is required." is shown)
+            function trackValidationFailed(form, validation) {
+                failedAttempts[form.id] = (failedAttempts[form.id] || 0) + 1;
+                trackPendoEvent('two_step_form_validation_failed', {
+                    form_id: form.id,
+                    form_title: getText(form, 'h3'),
+                    missing_fields: validation.missingFields.join(', '),
+                    missing_field_count: validation.missingFields.length,
+                    required_field_count: validation.requiredFieldCount,
+                    attempt_number: failedAttempts[form.id]
+                });
+            }
+
+            // Pendo: step 1 passed validation and the summary step is shown
+            function trackFormSubmitted(form, stepEl) {
+                var fields = stepEl.querySelectorAll('input, select, textarea');
+                var properties = {
+                    form_id: form.id,
+                    form_title: getText(form, 'h3'),
+                    form_purpose: getText(form, '.tsf-subtitle'),
+                    field_count: fields.length,
+                    failed_attempts: failedAttempts[form.id] || 0
+                };
+                fields.forEach(function(field) {
+                    var name = field.getAttribute('name');
+                    if (!Object.prototype.hasOwnProperty.call(TRACKED_FIELDS, name)) return;
+                    var value = String(field.value).trim();
+                    if (NUMERIC_FIELDS[name]) {
+                        // Tickets and Rating are free-text inputs: send them only when they are numbers
+                        var number = Number(value);
+                        properties[TRACKED_FIELDS[name]] = isFinite(number) ? number : undefined;
+                    } else {
+                        properties[TRACKED_FIELDS[name]] = value.slice(0, 50);
+                    }
+                });
+                trackPendoEvent('two_step_form_submitted', properties);
+            }
+
             document.addEventListener('click', function(e) {
                 if (e.target && e.target.classList.contains('tsf-submit-step')) {
                     var form = e.target.closest('form');
                     var step1 = form.querySelector('.tsf-form-step-1');
                     var step2 = form.querySelector('.tsf-form-step-2');
-                    if (!validateStep(step1)) return;
+                    var validation = validateStep(step1);
+                    if (!validation.valid) {
+                        trackValidationFailed(form, validation);
+                        return;
+                    }
                     var summaryEl = step2.querySelector('[data-summary]');
                     buildSummary(step1, summaryEl);
                     step1.hidden = true;
                     step2.hidden = false;
+                    trackFormSubmitted(form, step1);
                 }
                 if (e.target && e.target.classList.contains('tsf-btn-done')) {
                     var formToClose = e.target.closest('form');
