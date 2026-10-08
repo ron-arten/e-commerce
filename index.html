@@ -205,7 +205,7 @@
 
           <div class="modal-btn-group">
             <button type="button" class="btn-newsletter" onclick="showPreviousModal()">Back</button>
-            <button type="button" class="btn-newsletter" onclick="closeAllModals()">Done</button>
+            <button type="button" class="btn-newsletter" onclick="completeOnboarding()">Done</button>
           </div>
         </form>
       </div>
@@ -775,15 +775,15 @@
 
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
-                <a href="#" class="submenu-title">English</a>
+                <a href="#" class="submenu-title" data-preference="language" data-preference-value="en-US">English</a>
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title">Espa&ntilde;ol</a>
+                <a href="#" class="submenu-title" data-preference="language" data-preference-value="es-ES">Espa&ntilde;ol</a>
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                <a href="#" class="submenu-title" data-preference="language" data-preference-value="fr">Fren&ccedil;h</a>
               </li>
             </ul>
           </li>
@@ -796,11 +796,11 @@
 
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
-                <a href="#" class="submenu-title">USD &dollar;</a>
+                <a href="#" class="submenu-title" data-preference="currency" data-preference-value="usd">USD &dollar;</a>
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title">EUR &euro;</a>
+                <a href="#" class="submenu-title" data-preference="currency" data-preference-value="eur">EUR &euro;</a>
               </li>
             </ul>
           </li>

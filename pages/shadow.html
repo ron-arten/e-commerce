@@ -508,6 +508,20 @@
                     checkbox.addEventListener('change', (e) => {
                         const taskText = e.target.nextElementSibling;
                         taskText.classList.toggle('completed', e.target.checked);
+
+                        // Pendo: the change event and checked state never leave the shadow root,
+                        // so record which task was completed and the overall progress here
+                        if (e.target.checked) {
+                            const completedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+                            trackPendoEvent('shadow_task_completed', {
+                                task_index: Number(e.target.dataset.task),
+                                task_text: taskText.textContent.trim(),
+                                completed_count: completedCount,
+                                total_tasks: checkboxes.length,
+                                all_tasks_completed: completedCount === checkboxes.length,
+                                card_title: title
+                            });
+                        }
                     });
                 });
             }
@@ -814,6 +828,20 @@
 
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
+
+                    // Pendo: the native submit event isn't composed, so it never leaves the shadow root.
+                    // Count a submission once (not again while its confirmation is still showing) and
+                    // send derived flags instead of the name, email and message values.
+                    if (!message.classList.contains('show')) {
+                        const messageText = form.querySelector('textarea').value.trim();
+                        trackPendoEvent('shadow_contact_form_submitted', {
+                            form_title: title,
+                            component_tag: this.localName,
+                            has_message: messageText !== '',
+                            message_length: messageText.length
+                        });
+                    }
+
                     message.classList.add('show');
                     setTimeout(() => {
                         message.classList.remove('show');
